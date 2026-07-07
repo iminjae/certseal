@@ -135,9 +135,9 @@ export function BentoPricing() {
         priceLabel="$0"
         features={[
           "$5 of included monthly credits",
-          "Deploy apps to Vercel",
-          "Edit visually with Design Mode",
-          "Sync with GitHub",
+          "Single issuer workspace",
+          "Basic certificate verification",
+          "PDF output generation",
         ]}
         className="lg:col-span-3"
         cta="Get Started"
@@ -149,8 +149,8 @@ export function BentoPricing() {
         priceSuffix="/user/month"
         features={[
           "$30 of included monthly credits per user",
-          "Centralized billing on vercel.com",
-          "Share chats and collaborate with your team",
+          "Centralized company billing",
+          "Invite issuer and reviewer roles",
         ]}
         className="lg:col-span-4"
       />
@@ -159,7 +159,7 @@ export function BentoPricing() {
         titleBadge="BUSINESS"
         priceLabel="$100"
         priceSuffix="/user/month"
-        features={["$30 of included monthly credits per user", "Training opt-out by default", "Access to v0 API"]}
+        features={["Higher monthly certificate volume", "Issuer review controls", "Verification API access"]}
         className="lg:col-span-4"
       />
 

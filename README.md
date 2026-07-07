@@ -1,30 +1,21 @@
-# Landing page hero
+# CertSeal
 
-*Automatically synced with your [v0.app](https://v0.app) deployments*
-
-[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com/rajs-projects-a7283d3f/v0-landing-page-hero)
-[![Built with v0](https://img.shields.io/badge/Built%20with-v0.app-black?style=for-the-badge)](https://v0.app/chat/projects/TDZy0S0ZtGl)
+CertSeal converts final report PDFs into structured digital certificate data and issues company-bound Certificate SBTs.
 
 ## Overview
 
-This repository will stay in sync with your deployed chats on [v0.app](https://v0.app).
-Any changes you make to your deployed app will be automatically pushed to this repository from [v0.app](https://v0.app).
+CertSeal helps certification workflows move away from static PDF files. A final report can become structured certificate data, signed by an issuer DID, anchored through an on-chain registry, and bound to a company smart account as a non-transferable SBT.
 
-## Deployment
+External parties can verify issuer, ownership, and current certificate status without relying on manually shared PDF files.
 
-Your project is live at:
+## Development
 
-**[https://vercel.com/rajs-projects-a7283d3f/v0-landing-page-hero](https://vercel.com/rajs-projects-a7283d3f/v0-landing-page-hero)**
+```bash
+npm run dev
+```
 
-## Build your app
+## Build
 
-Continue building your app on:
-
-**[https://v0.app/chat/projects/TDZy0S0ZtGl](https://v0.app/chat/projects/TDZy0S0ZtGl)**
-
-## How It Works
-
-1. Create and modify your project using [v0.app](https://v0.app)
-2. Deploy your chats from the v0 interface
-3. Changes are automatically pushed to this repository
-4. Vercel deploys the latest version from this repository
+```bash
+npm run build
+```

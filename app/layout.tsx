@@ -1,16 +1,10 @@
 import type React from "react"
 import type { Metadata } from "next"
 
-import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
 import { Suspense } from "react"
 
-import { Open_Sans, Rubik, Instrument_Serif, Geist as V0_Font_Geist, Geist_Mono as V0_Font_Geist_Mono, Source_Serif_4 as V0_Font_Source_Serif_4 } from 'next/font/google'
-
-// Initialize fonts
-const _geist = V0_Font_Geist({ subsets: ['latin'], weight: ["100","200","300","400","500","600","700","800","900"] })
-const _geistMono = V0_Font_Geist_Mono({ subsets: ['latin'], weight: ["100","200","300","400","500","600","700","800","900"] })
-const _sourceSerif_4 = V0_Font_Source_Serif_4({ subsets: ['latin'], weight: ["200","300","400","500","600","700","800","900"] })
+import { Open_Sans, Rubik, Instrument_Serif } from 'next/font/google'
 
 const openSans = Open_Sans({
   subsets: ["latin"],
@@ -35,9 +29,12 @@ const instrumentSerif = Instrument_Serif({
 })
 
 export const metadata: Metadata = {
-  title: "v0 App",
-  description: "Created with v0",
-  generator: "v0.app",
+  title: "CertSeal",
+  description: "Company-bound digital certificates issued as non-transferable SBTs.",
+  icons: {
+    icon: "/certseal-icon.svg",
+    apple: "/certseal-icon.svg",
+  },
 }
 
 export default function RootLayout({
@@ -46,11 +43,10 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html lang="ko">
       <body className={`font-sans ${openSans.variable} ${rubik.variable} ${instrumentSerif.variable}`}>
         <Suspense fallback={null}>
           {children}
-          <Analytics />
         </Suspense>
       </body>
     </html>
