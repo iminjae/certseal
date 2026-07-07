@@ -9,6 +9,7 @@ export const dictionaries = {
     nav: {
       features: "기능",
       flow: "흐름",
+      about: "소개",
       trust: "신뢰 구조",
       contact: "문의",
       startIssuing: "발급 시작",
@@ -207,6 +208,7 @@ export const dictionaries = {
     nav: {
       features: "Features",
       flow: "Flow",
+      about: "About",
       trust: "Trust Layer",
       contact: "Contact",
       startIssuing: "Start Issuing",

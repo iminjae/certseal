@@ -18,6 +18,7 @@ import { useEffect, useRef, useState } from "react"
 export default function Home() {
   const [locale, setLocale] = useState<Locale>(defaultLocale)
   const scrollContainerRef = useRef<HTMLDivElement>(null)
+  const aboutSectionRef = useRef<HTMLDivElement>(null)
   const trustSectionRef = useRef<HTMLDivElement>(null)
   const contactSectionRef = useRef<HTMLDivElement>(null)
   const t = dictionaries[locale]
@@ -92,7 +93,11 @@ export default function Home() {
         return
       }
 
-      if (handleScrollableSection(contactSectionRef.current, 3, 2, 3)) {
+      if (handleScrollableSection(aboutSectionRef.current, 3, 2, 4)) {
+        return
+      }
+
+      if (handleScrollableSection(contactSectionRef.current, 4, 3, 4)) {
         return
       }
 
@@ -101,7 +106,7 @@ export default function Home() {
       if (Math.abs(delta) > 10) {
         let targetSection = currentSection
         if (delta > 0) {
-          targetSection = Math.min(currentSection + 1, 3)
+          targetSection = Math.min(currentSection + 1, 4)
         } else {
           targetSection = Math.max(currentSection - 1, 0)
         }
@@ -212,22 +217,12 @@ export default function Home() {
             )}
           />
 
-          <div className="relative z-10 mx-auto w-full max-w-7xl">
-            <div className="mx-auto mb-10 max-w-2xl text-center">
-              <h1 className="text-4xl font-extrabold tracking-tight lg:text-6xl text-white [text-shadow:_0_4px_20px_rgb(0_0_0_/_60%)] font-open-sans-custom">
-                {t.trust.topTitle}
-              </h1>
-              <p className="text-gray-300 mt-4 text-sm md:text-base font-open-sans-custom [text-shadow:_0_2px_10px_rgb(0_0_0_/_50%)]">
-                {t.trust.topSubtitle}
-              </p>
-            </div>
-            <AboutQuote content={t.trust} />
-
-            <div className="mx-auto mt-12 max-w-6xl">
-              <div className="mb-8 max-w-2xl">
-                <h2 className="text-3xl font-extrabold tracking-tight text-white [text-shadow:_0_4px_20px_rgb(0_0_0_/_60%)] font-open-sans-custom md:text-5xl">
+          <div className="relative z-10 mx-auto flex min-h-full w-full max-w-7xl items-center">
+            <div className="w-full">
+              <div className="mx-auto mb-10 max-w-2xl text-center">
+                <h1 className="text-4xl font-extrabold tracking-tight lg:text-6xl text-white [text-shadow:_0_4px_20px_rgb(0_0_0_/_60%)] font-open-sans-custom">
                   {t.trust.layerTitle}
-                </h2>
+                </h1>
                 <p className="mt-4 text-base leading-7 text-gray-300 [text-shadow:_0_2px_10px_rgb(0_0_0_/_50%)] font-open-sans-custom md:text-lg">
                   {t.trust.layerDescription}
                 </p>
@@ -238,9 +233,9 @@ export default function Home() {
                     key={card.title}
                     className="rounded-lg border border-white/15 bg-white/[0.08] p-5 shadow-[0_24px_80px_rgba(0,0,0,0.24)] backdrop-blur-xl"
                   >
-                    <h3 className="mb-3 text-base font-semibold text-white [text-shadow:_0_2px_10px_rgb(0_0_0_/_45%)] font-open-sans-custom">
+                    <h2 className="mb-3 text-base font-semibold text-white [text-shadow:_0_2px_10px_rgb(0_0_0_/_45%)] font-open-sans-custom">
                       {card.title}
-                    </h3>
+                    </h2>
                     <p className="text-sm leading-6 text-gray-300 [text-shadow:_0_2px_8px_rgb(0_0_0_/_40%)]">
                       {card.description}
                     </p>
@@ -248,6 +243,35 @@ export default function Home() {
                 ))}
               </div>
             </div>
+          </div>
+        </section>
+
+        <section
+          id="about"
+          ref={aboutSectionRef}
+          className="relative min-w-full snap-start overflow-y-auto px-4 pt-24 pb-20 [&::-webkit-scrollbar]:hidden"
+          style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+        >
+          <div
+            aria-hidden="true"
+            className={cn(
+              "absolute inset-0 z-0 size-full pointer-events-none",
+              "bg-[radial-gradient(rgba(255,255,255,0.1)_1px,transparent_1px)]",
+              "bg-[size:12px_12px]",
+              "opacity-30",
+            )}
+          />
+
+          <div className="relative z-10 mx-auto w-full max-w-7xl">
+            <div className="mx-auto mb-10 max-w-2xl text-center">
+              <h1 className="text-4xl font-extrabold tracking-tight lg:text-6xl text-white [text-shadow:_0_4px_20px_rgb(0_0_0_/_60%)] font-open-sans-custom">
+                {t.trust.topTitle}
+              </h1>
+              <p className="text-gray-300 mt-4 text-sm md:text-base font-open-sans-custom [text-shadow:_0_2px_10px_rgb(0_0_0_/_50%)]">
+                {t.trust.topSubtitle}
+              </p>
+            </div>
+            <AboutQuote content={t.trust} />
           </div>
         </section>
 
