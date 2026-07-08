@@ -1,7 +1,6 @@
 export type MockSession = {
   email: string
   companyName: string
-  managerName: string
   companySmartAccount: string
   isAuthenticated: true
 }
@@ -18,7 +17,6 @@ export function signIn(email: string) {
   const session: MockSession = {
     email,
     companyName: "A Company",
-    managerName: "Certificate Manager",
     companySmartAccount: createMockCompanySmartAccount(),
     isAuthenticated: true,
   }
@@ -30,16 +28,13 @@ export function signIn(email: string) {
 export function signUp({
   email,
   companyName,
-  managerName,
 }: {
   email: string
   companyName: string
-  managerName: string
 }) {
   const session: MockSession = {
     email,
     companyName,
-    managerName,
     companySmartAccount: createMockCompanySmartAccount(),
     isAuthenticated: true,
   }

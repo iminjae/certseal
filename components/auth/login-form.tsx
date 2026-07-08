@@ -25,7 +25,7 @@ export function LoginForm({ content }: LoginFormProps) {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
     setIsLoading(true)
-    signIn(email || "manager@company.com")
+    signIn(email || "company@company.com")
     router.push("/dashboard")
   }
 

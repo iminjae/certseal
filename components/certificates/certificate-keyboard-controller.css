@@ -1,0 +1,191 @@
+.certificate-keyboard-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 0.5rem;
+  overflow: hidden;
+  padding-bottom: 2.5rem;
+  position: relative;
+  z-index: 20;
+}
+
+.certificate-keyboard,
+.certificate-keyboard:before,
+.certificate-keyboard:after {
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.certificate-keyboard,
+.certificate-keyboard__key-lines {
+  display: flex;
+}
+
+.certificate-keyboard {
+  align-items: center;
+  background-color: #ccc;
+  background-image: linear-gradient(90deg, #1a1a1a66, #1a1a1a00);
+  border-radius: 0.75em;
+  box-shadow: -0.5em -0.5em 0.75em #0009, inset 0 0 0 1px #ababab;
+  height: 6em;
+  padding: 0.2em;
+  position: relative;
+  transform: scale(0.75);
+  width: 13em;
+}
+
+.certificate-keyboard:before,
+.certificate-keyboard:after {
+  background-color: hsl(0, 0%, 90%);
+  content: "";
+  display: block;
+  position: absolute;
+  top: 100%;
+}
+
+.certificate-keyboard:before {
+  box-shadow: 0.5em 0.5em 0.75em hsla(0, 0%, 0%, 0.6), 0.25em 0 0.25em hsla(0, 0%, 10%, 0.2) inset,
+    0.25em 1.25em 0.5em hsla(0, 0%, 10%, 0.5) inset;
+  height: 40em;
+  left: calc(50% - 0.5em);
+  width: 1em;
+}
+
+.certificate-keyboard:after {
+  border-radius: 0 0 0.25em 0.25em;
+  box-shadow: 0.375em 0.25em 0.5em hsla(0, 0%, 10%, 0.5) inset;
+  height: 1.25em;
+  left: calc(50% - 0.75em);
+  width: 1.5em;
+}
+
+.certificate-keyboard__cmd {
+  display: block;
+  height: 1em;
+  width: 1em;
+}
+
+.certificate-keyboard__key {
+  appearance: none;
+  background-color: hsl(0, 0%, 95%);
+  border: none;
+  border-radius: 0.5em;
+  box-shadow: -0.4em -0.25em 0.25em hsla(0, 0%, 0%, 0.25), 0 0 0 0.1em hsla(0, 0%, 0%, 0.3),
+    0.04em 0.04em 0.04em hsla(0, 0%, 0%, 0.4) inset, -0.1em -0.1em 0.04em hsla(0, 0%, 100%, 0.8) inset;
+  color: hsl(0, 0%, 50%);
+  cursor: pointer;
+  height: 5em;
+  margin: 0 0.375em;
+  outline: transparent;
+  padding: 0.75em;
+  position: relative;
+  transition: background-color 0.3s, box-shadow 0.15s, color 0.3s;
+  user-select: none;
+  width: 5em;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.certificate-keyboard__key--meta {
+  width: 6.5em;
+}
+
+.certificate-keyboard__key--wide {
+  width: 6.5em;
+}
+
+.certificate-keyboard__key--hidden {
+  display: none;
+}
+
+.certificate-keyboard__key--disabled {
+  color: hsl(0, 0%, 70%);
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.certificate-keyboard__key:not(.certificate-keyboard__key--disabled):active,
+.certificate-keyboard__key:not(.certificate-keyboard__key--disabled).active {
+  box-shadow: 0 0 0.2em hsla(0, 0%, 0%, 0.2), 0 0 0 0.1em hsla(0, 0%, 0%, 0.4), 0 -0.05em 0 hsla(0, 0%, 0%, 0.6) inset,
+    -0.05em -0.15em 0.05em hsla(0, 0%, 100%, 0.8) inset;
+}
+
+.certificate-keyboard__key:not(.certificate-keyboard__key--disabled):hover {
+  background-color: hsl(210, 100%, 96%);
+  color: hsl(210, 100%, 50%);
+}
+
+.certificate-keyboard__key-line {
+  font-size: 2em;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.certificate-keyboard__key-line--small {
+  font-size: 0.875em;
+}
+
+.certificate-keyboard__key-line--tr {
+  margin: 0 0 auto auto;
+}
+
+.certificate-keyboard__key-line--br {
+  margin: auto 0 0 auto;
+}
+
+.certificate-keyboard__key-hint {
+  display: block;
+  font-size: 0.65em;
+  letter-spacing: 0.05em;
+  margin-top: 0.25em;
+  opacity: 0.6;
+  text-transform: uppercase;
+}
+
+.certificate-keyboard__key-lines {
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  transition: transform 0.15s;
+  width: 100%;
+}
+
+.certificate-keyboard__key:not(.certificate-keyboard__key--disabled):active .certificate-keyboard__key-lines,
+.certificate-keyboard__key:not(.certificate-keyboard__key--disabled).active .certificate-keyboard__key-lines {
+  transform: translateY(-1px);
+}
+
+.certificate-keyboard__key:before {
+  border-radius: 0.5em;
+  box-shadow: 0 0 0 0.5em hsla(223, 90%, 50%, 0);
+  content: "";
+  display: block;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  transition: box-shadow 0.3s;
+  width: 100%;
+}
+
+.certificate-keyboard__key:not(.certificate-keyboard__key--disabled):focus-visible:before {
+  box-shadow: 0 0 0 0.5em hsla(223, 90%, 50%, 0.5);
+}
+
+@media (prefers-color-scheme: dark) {
+  .certificate-keyboard__key {
+    background-color: hsl(0, 0%, 15%);
+    box-shadow: -0.4em -0.25em 0.25em hsla(0, 0%, 0%, 0.25), 0 0 0 0.1em hsla(0, 0%, 0%, 0.3),
+      0.04em 0.04em 0.04em hsla(0, 0%, 0%, 0.4) inset, -0.1em -0.1em 0.04em hsla(0, 0%, 100%, 0.05) inset;
+    color: hsl(0, 0%, 90%);
+  }
+
+  .certificate-keyboard__key:not(.certificate-keyboard__key--disabled):active,
+  .certificate-keyboard__key:not(.certificate-keyboard__key--disabled).active {
+    box-shadow: 0 0 0.2em hsla(0, 0%, 0%, 0.2), 0 0 0 0.1em hsla(0, 0%, 0%, 0.4), 0 -0.05em 0 hsla(0, 0%, 0%, 0.4) inset,
+      -0.05em -0.15em 0.05em hsla(0, 0%, 100%, 0.05) inset;
+  }
+
+  .certificate-keyboard__key:not(.certificate-keyboard__key--disabled):hover {
+    background-color: hsl(210, 80%, 20%);
+    color: hsl(210, 100%, 70%);
+  }
+}

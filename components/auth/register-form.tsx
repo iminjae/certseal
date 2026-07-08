@@ -4,7 +4,7 @@ import type React from "react"
 import { useState } from "react"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
-import { Building2, Check, Lock, Mail, User } from "lucide-react"
+import { Building2, Check, Lock, Mail } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -21,15 +21,13 @@ export function RegisterForm({ content }: RegisterFormProps) {
   const [workEmail, setWorkEmail] = useState("")
   const [password, setPassword] = useState("")
   const [companyName, setCompanyName] = useState("")
-  const [managerName, setManagerName] = useState("")
   const [successMessage, setSuccessMessage] = useState("")
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
     signUp({
-      email: workEmail || "manager@company.com",
+      email: workEmail || "company@company.com",
       companyName: companyName || "A Company",
-      managerName: managerName || "Certificate Manager",
     })
     setSuccessMessage(content.common.smartAccountCreated)
     window.setTimeout(() => router.push("/dashboard"), 700)
@@ -73,14 +71,6 @@ export function RegisterForm({ content }: RegisterFormProps) {
           onChange={setCompanyName}
           icon={<Building2 className="h-4 w-4" />}
         />
-        <AuthInput
-          id="manager-name"
-          label={content.register.managerName}
-          value={managerName}
-          onChange={setManagerName}
-          icon={<User className="h-4 w-4" />}
-        />
-
         <div className="rounded-2xl border border-white/15 bg-white/10 p-4">
           <p className="text-sm font-semibold text-white font-open-sans-custom">{content.register.smartAccountTitle}</p>
           <p className="mt-1 text-xs leading-5 text-white/65 font-open-sans-custom">
