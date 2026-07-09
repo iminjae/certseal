@@ -16,11 +16,12 @@ type CertificateCarouselProps = {
     next: string
     viewCertificate: string
   }
+  onActiveIndexChange?: (activeIndex: number) => void
 }
 
 const visibleDepth = 2
 
-export function CertificateCarousel({ certificates, labels }: CertificateCarouselProps) {
+export function CertificateCarousel({ certificates, labels, onActiveIndexChange }: CertificateCarouselProps) {
   const initialIndex = Math.floor(certificates.length / 2)
   const [activeIndex, setActiveIndex] = useState(initialIndex)
   const [activeKey, setActiveKey] = useState<"a" | "d" | null>(null)
@@ -40,6 +41,10 @@ export function CertificateCarousel({ certificates, labels }: CertificateCarouse
   useEffect(() => {
     setActiveIndex(Math.floor(certificates.length / 2))
   }, [certificates.length])
+
+  useEffect(() => {
+    onActiveIndexChange?.(activeIndex)
+  }, [activeIndex, onActiveIndexChange])
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {

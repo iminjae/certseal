@@ -50,6 +50,10 @@ export function CertificateSbtCard({ certificate, isActive = false, viewLabel }:
         </div>
 
         <dl className="grid grid-cols-2 gap-3 text-xs text-white/60">
+          <div className="col-span-2">
+            <dt className="uppercase tracking-[0.18em] text-white/35">Type</dt>
+            <dd className="mt-1 font-medium text-white/80">{certificate.certificationType}</dd>
+          </div>
           <div>
             <dt className="uppercase tracking-[0.18em] text-white/35">Issued</dt>
             <dd className="mt-1 font-medium text-white/80">{certificate.issuedAt}</dd>
