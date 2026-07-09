@@ -80,7 +80,7 @@ export default function DashboardPage() {
               </Button>
             </div>
 
-            <section className="rounded-[2rem] border border-white/16 bg-white/[0.07] px-4 py-6 shadow-[0_28px_90px_rgba(0,0,0,0.34)] backdrop-blur-2xl sm:px-6 lg:px-8">
+            <section className="px-0 py-6 sm:px-2 lg:px-4">
               <div className="mb-4 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
                 <div>
                   <h2 className="text-2xl font-extrabold tracking-tight text-white [text-shadow:_0_4px_18px_rgb(0_0_0_/_45%)] font-open-sans-custom md:text-3xl">
@@ -109,7 +109,6 @@ export default function DashboardPage() {
                 labels={{
                   previous: t.previous,
                   next: t.next,
-                  viewCertificate: t.viewCertificate,
                 }}
               />
             </section>

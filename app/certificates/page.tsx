@@ -7,7 +7,7 @@ import { FilePlus2 } from "lucide-react"
 
 import { AccountMenu } from "@/components/account-menu"
 import { BrandLogo } from "@/components/brand-logo"
-import { CertificateSbtCard } from "@/components/certificates/certificate-sbt-card"
+import { MetallicCertificateCard } from "@/components/certificates/metallic-certificate-card"
 import { LiquidMetalBackground } from "@/components/liquid-metal-background"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
@@ -137,10 +137,17 @@ export default function CertificatesPage() {
           </div>
 
           {filteredCertificates.length ? (
-            <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
+            <div className="grid gap-7 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
               {filteredCertificates.map((certificate) => (
-                <div key={certificate.id} className="transition duration-300 hover:-translate-y-1 hover:drop-shadow-[0_18px_45px_rgba(125,211,252,0.13)]">
-                  <CertificateSbtCard certificate={certificate} viewLabel={t.viewCertificate} />
+                <div
+                  key={certificate.id}
+                  className="mx-auto h-[360px] w-full max-w-[252px] transition duration-300 hover:-translate-y-1 hover:drop-shadow-[0_18px_45px_rgba(226,239,255,0.14)]"
+                >
+                  <MetallicCertificateCard
+                    certificate={certificate}
+                    enableElectricBorder={false}
+                    href={`/certificates/${certificate.id}`}
+                  />
                 </div>
               ))}
             </div>

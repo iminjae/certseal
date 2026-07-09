@@ -1,9 +1,11 @@
-export type CertificateStatus = "Active" | "Expired" | "Revoked"
+export type CertificateStatus = "Active" | "Expired" | "Revoked" | "Superseded"
 
 export type MockCertificate = {
   id: string
   tokenId: string
+  certificateCode: string
   title: string
+  description: string
   companyName: string
   status: CertificateStatus
   certificationType: string
@@ -21,7 +23,9 @@ export const mockCertificates: MockCertificate[] = [
   {
     id: "cert-001",
     tokenId: "1001",
+    certificateCode: "CERT-2026-0001",
     title: "Software Functional Test Certificate",
+    description: "A company-bound digital certificate issued as a non-transferable SBT.",
     companyName: "A Company",
     status: "Active",
     certificationType: "Software Test",
@@ -37,7 +41,9 @@ export const mockCertificates: MockCertificate[] = [
   {
     id: "cert-002",
     tokenId: "1002",
+    certificateCode: "CERT-2026-0002",
     title: "KC Certification Support Result",
+    description: "A company-bound digital certificate issued as a non-transferable SBT.",
     companyName: "A Company",
     status: "Active",
     certificationType: "KC Support",
@@ -53,7 +59,9 @@ export const mockCertificates: MockCertificate[] = [
   {
     id: "cert-003",
     tokenId: "1003",
+    certificateCode: "CERT-2025-0003",
     title: "Security Review Certificate",
+    description: "A company-bound digital certificate issued as a non-transferable SBT.",
     companyName: "A Company",
     status: "Expired",
     certificationType: "Security Review",
@@ -69,7 +77,9 @@ export const mockCertificates: MockCertificate[] = [
   {
     id: "cert-004",
     tokenId: "1004",
+    certificateCode: "CERT-2026-0004",
     title: "Quality Inspection Certificate",
+    description: "A company-bound digital certificate issued as a non-transferable SBT.",
     companyName: "A Company",
     status: "Revoked",
     certificationType: "Quality Inspection",
@@ -85,7 +95,9 @@ export const mockCertificates: MockCertificate[] = [
   {
     id: "cert-005",
     tokenId: "1005",
+    certificateCode: "CERT-2026-0005",
     title: "Digital Report Verification",
+    description: "A company-bound digital certificate issued as a non-transferable SBT.",
     companyName: "A Company",
     status: "Active",
     certificationType: "Report Verification",

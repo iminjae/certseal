@@ -1,10 +1,11 @@
 "use client"
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react"
+import { useRouter } from "next/navigation"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
-import { CertificateSbtCard } from "@/components/certificates/certificate-sbt-card"
+import { MetallicCertificateCard } from "@/components/certificates/metallic-certificate-card"
 import { cn } from "@/lib/utils"
 import type { MockCertificate } from "@/lib/mock-certificates"
 import "./certificate-keyboard-controller.css"
@@ -14,7 +15,6 @@ type CertificateCarouselProps = {
   labels: {
     previous: string
     next: string
-    viewCertificate: string
   }
   onActiveIndexChange?: (activeIndex: number) => void
 }
@@ -22,6 +22,7 @@ type CertificateCarouselProps = {
 const visibleDepth = 2
 
 export function CertificateCarousel({ certificates, labels, onActiveIndexChange }: CertificateCarouselProps) {
+  const router = useRouter()
   const initialIndex = Math.floor(certificates.length / 2)
   const [activeIndex, setActiveIndex] = useState(initialIndex)
   const [activeKey, setActiveKey] = useState<"a" | "d" | null>(null)
@@ -100,10 +101,10 @@ export function CertificateCarousel({ certificates, labels, onActiveIndexChange 
       const offset = index - activeIndex
       const absOffset = Math.abs(offset)
       const isVisible = absOffset <= visibleDepth
-      const translateX = offset * 190
+      const translateX = offset * 142
       const rotateY = offset === 0 ? 0 : offset < 0 ? 34 : -34
       const scale = offset === 0 ? 1 : absOffset === 1 ? 0.82 : 0.66
-      const translateZ = offset === 0 ? 130 : absOffset === 1 ? 18 : -120
+      const translateZ = offset === 0 ? 98 : absOffset === 1 ? 14 : -90
       const opacity = isVisible ? (offset === 0 ? 1 : absOffset === 1 ? 0.72 : 0.38) : 0
 
       return {
@@ -125,8 +126,8 @@ export function CertificateCarousel({ certificates, labels, onActiveIndexChange 
 
   return (
     <div className="relative">
-      <div className="relative mx-auto h-[440px] w-full overflow-hidden [perspective:1500px] sm:h-[500px]">
-        <div className="absolute left-1/2 top-8 h-[380px] w-[280px] -translate-x-1/2 [transform-style:preserve-3d] sm:h-[430px] sm:w-[320px]">
+      <div className="relative mx-auto h-[340px] w-full overflow-hidden [perspective:1500px] sm:h-[390px]">
+        <div className="absolute left-1/2 top-4 h-[293px] w-[205px] -translate-x-1/2 [transform-style:preserve-3d] sm:top-5 sm:h-[335px] sm:w-[234px]">
           {carouselItems.map(({ certificate, index, isActive, isVisible, style }) => (
             <div
               key={certificate.id}
@@ -134,10 +135,22 @@ export function CertificateCarousel({ certificates, labels, onActiveIndexChange 
               tabIndex={0}
               aria-label={`Select Certificate SBT #${certificate.tokenId}`}
               aria-current={isActive}
-              onClick={() => setActiveIndex(index)}
+              onClick={() => {
+                if (isActive) {
+                  router.push(`/certificates/${certificate.id}`)
+                  return
+                }
+
+                setActiveIndex(index)
+              }}
               onKeyDown={(event) => {
                 if (event.key === "Enter" || event.key === " ") {
                   event.preventDefault()
+                  if (isActive) {
+                    router.push(`/certificates/${certificate.id}`)
+                    return
+                  }
+
                   setActiveIndex(index)
                 }
               }}
@@ -148,7 +161,10 @@ export function CertificateCarousel({ certificates, labels, onActiveIndexChange 
               )}
               style={style}
             >
-              <CertificateSbtCard certificate={certificate} isActive={isActive} viewLabel={labels.viewCertificate} />
+              <MetallicCertificateCard
+                certificate={certificate}
+                enableElectricBorder={isActive}
+              />
             </div>
           ))}
         </div>

@@ -175,6 +175,10 @@ export const dictionaries = {
       viewCertificate: "인증서 보기",
       empty: "표시할 인증서가 없습니다.",
     },
+    certificateCard: {
+      viewCertificate: "인증서 보기",
+      defaultDescription: "회사 Smart Account에 귀속된 양도 불가능한 디지털 인증서입니다.",
+    },
     account: {
       myPage: "마이페이지",
       signOut: "로그아웃",
@@ -420,6 +424,10 @@ export const dictionaries = {
       all: "All",
       viewCertificate: "View Certificate",
       empty: "No certificates found.",
+    },
+    certificateCard: {
+      viewCertificate: "View Certificate",
+      defaultDescription: "A company-bound digital certificate issued as a non-transferable SBT.",
     },
     account: {
       myPage: "My Page",
